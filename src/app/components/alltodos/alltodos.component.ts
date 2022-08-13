@@ -1,0 +1,25 @@
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { Todo } from 'src/app/Todo';
+
+@Component({
+  selector: 'app-alltodos',
+  templateUrl: './alltodos.component.html',
+  styleUrls: ['./alltodos.component.css'],
+})
+export class AlltodosComponent implements OnInit {
+  @Input() todo: Todo;
+  @Input() i: number;
+  @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
+  @Output() todotoggle: EventEmitter<Todo> = new EventEmitter();
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  onClick(todo: Todo) {
+    this.todoDelete.emit(todo);
+  }
+
+  marksAsDone(todo: Todo) {
+    this.todotoggle.emit(todo);
+  }
+}

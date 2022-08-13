@@ -1,0 +1,26 @@
+<div class="container mx-auto mt-3">
+  <h1 class="text-center">Todo List in Angular</h1>
+  <div class="d-flex flex-column">
+    <app-addtodo
+      class="container mx-auto mt-2 mb-5"
+      (addTodo)="todoadd($event)"
+    ></app-addtodo>
+    <div
+      class="position-relative d-flex flex-row flex-wrap justify-content-evenly"
+    >
+      <div *ngIf="this.todos.length === 0; else elseBlock">
+        <h4>No Todo to Display</h4>
+      </div>
+      <ng-template #elseBlock>
+        <div *ngFor="let todo of todos; index as i">
+          <app-alltodos
+            [todo]="todo"
+            [i]="i"
+            (todoDelete)="deleteTodo($event)"
+            (todotoggle)="toggletodo($event)"
+          ></app-alltodos>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
