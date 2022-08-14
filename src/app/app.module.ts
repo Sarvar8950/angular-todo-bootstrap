@@ -7,6 +7,8 @@ import { TodosComponent } from './components/todos/todos.component';
 import { AlltodosComponent } from './components/alltodos/alltodos.component';
 import { AddtodoComponent } from './components/addtodo/addtodo.component';
 import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { FormsModule } from '@angular/forms';
     TodosComponent,
     AlltodosComponent,
     AddtodoComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
