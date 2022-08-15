@@ -22,6 +22,10 @@ export class AddtodoComponent implements OnInit {
       desc: this.desc,
       active: false,
     };
+    if (this.title.length === 0 || this.desc.length === 0) {
+      window.alert('All field are mandetyry !!');
+      return;
+    }
     this.addTodo.emit(todo);
   }
 }
