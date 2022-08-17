@@ -1,5 +1,5 @@
 <h4>Add a Todo</h4>
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #formid>
   <div class="mb-3">
     <label for="title" class="form-label">Todo Title</label>
     <input
@@ -22,5 +22,7 @@
       [(ngModel)]="desc"
     />
   </div>
-  <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+  <button type="submit" class="btn btn-sm btn-primary">
+    {{ setEditMode ? "Update Todo" : "Add Todo" }}
+  </button>
 </form>

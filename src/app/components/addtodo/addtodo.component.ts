@@ -1,4 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  Input,
+  ViewChild,
+} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Todo } from 'src/app/Todo';
 
 @Component({
@@ -10,14 +18,23 @@ export class AddtodoComponent implements OnInit {
   title: string;
   desc: string;
   @Output() addTodo: EventEmitter<Todo> = new EventEmitter();
+  @Input() setEditMode: boolean;
+  @Input() forupdatetodo: Todo;
+  @ViewChild('formid') form: NgForm;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.setEditMode) {
+      this.title = this.forupdatetodo.title;
+      this.desc = this.forupdatetodo.desc;
+    }
+  }
 
   onSubmit() {
+    // console.log(this.forupdatetodo);
+    // console.log(this.title, this.desc);
     const todo = {
-      sno: Math.round(Math.random() * 100000000),
       title: this.title,
       desc: this.desc,
       active: false,
@@ -27,5 +44,6 @@ export class AddtodoComponent implements OnInit {
       return;
     }
     this.addTodo.emit(todo);
+    // this.setEditMode = false;
   }
 }

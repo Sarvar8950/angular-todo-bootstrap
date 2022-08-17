@@ -11,12 +11,17 @@ export class AlltodosComponent implements OnInit {
   @Input() i: number;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
   @Output() todotoggle: EventEmitter<Todo> = new EventEmitter();
+  @Output() todoupdate: EventEmitter<Todo> = new EventEmitter();
   constructor() {}
 
   ngOnInit(): void {}
 
   onClick(todo: Todo) {
     this.todoDelete.emit(todo);
+  }
+
+  updatetodo(todo: Todo) {
+    this.todoupdate.emit(todo);
   }
 
   marksAsDone(todo: Todo) {

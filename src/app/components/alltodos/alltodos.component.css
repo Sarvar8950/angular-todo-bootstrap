@@ -1,3 +1,6 @@
-.striketext{
-    text-decoration: line-through;
+.striketext {
+  text-decoration: line-through;
+}
+button {
+  margin: 0 5px;
 }

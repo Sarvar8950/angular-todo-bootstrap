@@ -9,6 +9,7 @@ import { AddtodoComponent } from './components/addtodo/addtodo.component';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { ContactComponent } from './components/contact/contact.component';
     AboutComponent,
     ContactComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
