@@ -9,7 +9,9 @@ import { TodoserviceService } from '../todoservice.service';
 })
 export class TodosComponent implements OnInit {
   todos: Todo[];
-  forupdatetodo: Todo;
+  title: string;
+  desc: string;
+  todoid: {};
   editMode: boolean = false;
   // localitem: any;  // for localstorage
   constructor(private todoservice: TodoserviceService) {
@@ -56,9 +58,16 @@ export class TodosComponent implements OnInit {
     }, 100);
   }
 
-  updatetodo(todo: Todo) {
-    // console.log(todo);
-    this.forupdatetodo = todo;
+  updatetodo(todo: any) {
     this.editMode = true;
+    this.title = todo.title;
+    this.desc = todo.desc;
+    this.todoid = todo.id;
+  }
+
+  todoupdate(todo: any) {
+    todo.id = this.todoid;
+    // console.log(todo);
+    this.todoservice.updatetodos(todo);
   }
 }

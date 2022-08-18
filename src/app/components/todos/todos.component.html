@@ -4,8 +4,10 @@
     <app-addtodo
       class="container mx-auto mt-2 mb-5"
       (addTodo)="todoadd($event)"
+      (updateTodo)="todoupdate($event)"
       [setEditMode]="editMode"
-      [forupdatetodo]="forupdatetodo"
+      [title]="title"
+      [desc]="desc"
     ></app-addtodo>
     <div
       class="position-relative d-flex flex-row flex-wrap justify-content-evenly"
