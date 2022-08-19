@@ -17,9 +17,9 @@ import { Todo } from 'src/app/Todo';
 export class AddtodoComponent implements OnInit {
   @Input() title: string;
   @Input() desc: string;
+  @Input() setEditMode: boolean;
   @Output() addTodo: EventEmitter<Todo> = new EventEmitter();
   @Output() updateTodo: EventEmitter<Todo> = new EventEmitter();
-  @Input() setEditMode: boolean;
   @ViewChild('formid') form: NgForm;
 
   constructor() {}
@@ -33,14 +33,16 @@ export class AddtodoComponent implements OnInit {
       active: false,
     };
     if (this.title.length === 0 || this.desc.length === 0) {
-      window.alert('All field are mandetyry !!');
+      alert('All field are mandetyry !!');
       return;
     }
-    if (this.setEditMode) {
+    if (this.setEditMode == true) {
       this.updateTodo.emit(todo);
+      this.setEditMode = false;
     } else {
       this.addTodo.emit(todo);
     }
-    this.setEditMode = false;
+    this.title = '';
+    this.desc = '';
   }
 }

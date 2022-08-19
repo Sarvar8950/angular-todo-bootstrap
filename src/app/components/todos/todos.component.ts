@@ -59,15 +59,18 @@ export class TodosComponent implements OnInit {
   }
 
   updatetodo(todo: any) {
-    this.editMode = true;
     this.title = todo.title;
     this.desc = todo.desc;
     this.todoid = todo.id;
+    this.editMode = true;
   }
 
   todoupdate(todo: any) {
     todo.id = this.todoid;
     // console.log(todo);
     this.todoservice.updatetodos(todo);
+    setTimeout(() => {
+      this.todoservice.gettodos().subscribe((data) => (this.todos = data));
+    }, 100);
   }
 }

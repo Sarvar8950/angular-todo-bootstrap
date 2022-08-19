@@ -20,6 +20,7 @@
           <app-alltodos
             [todo]="todo"
             [i]="i"
+            [setEditMode]="editMode"
             (todoDelete)="deleteTodo($event)"
             (todotoggle)="toggletodo($event)"
             (todoupdate)="updatetodo($event)"

@@ -8,6 +8,7 @@ import { Todo } from 'src/app/Todo';
 })
 export class AlltodosComponent implements OnInit {
   @Input() todo: Todo;
+  @Input() setEditMode: boolean;
   @Input() i: number;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
   @Output() todotoggle: EventEmitter<Todo> = new EventEmitter();
@@ -17,6 +18,7 @@ export class AlltodosComponent implements OnInit {
   ngOnInit(): void {}
 
   onClick(todo: Todo) {
+    this.setEditMode = false;
     this.todoDelete.emit(todo);
   }
 
