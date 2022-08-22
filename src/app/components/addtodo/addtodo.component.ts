@@ -33,7 +33,7 @@ export class AddtodoComponent implements OnInit {
       active: false,
     };
     if (this.title.length === 0 || this.desc.length === 0) {
-      alert('All field are mandetyry !!');
+      alert('All field are mandetry !!');
       return;
     }
     if (this.setEditMode == true) {

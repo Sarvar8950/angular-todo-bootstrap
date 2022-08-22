@@ -2,15 +2,9 @@
   "todos": [
     {
       "title": "1st",
-      "desc": "1st updated",
+      "desc": "1st",
       "active": false,
       "id": 1
-    },
-    {
-      "title": "2nd",
-      "desc": "2nd updated",
-      "active": false,
-      "id": 2
     }
   ]
 }
